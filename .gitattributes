@@ -1,0 +1,6 @@
+* text=auto
+vendor/** -text
+*.wasm binary
+*.task binary
+*.html -text -diff
+*.cmd text eol=crlf

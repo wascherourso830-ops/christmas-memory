@@ -1,0 +1,63 @@
+:root{color-scheme:dark;--gold:#e2c78d;--light:#f6e8c9;--muted:#a6a18f;font-family:"Microsoft YaHei","PingFang SC",sans-serif;font-size:16px;background:#050807;color:var(--light)}
+*{box-sizing:border-box}
+body{margin:0;overflow:hidden}
+button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:background .2s,color .2s,border-color .2s}
+button:focus-visible{outline:2px solid var(--gold);outline-offset:5px}
+button:disabled{opacity:.5;cursor:wait}
+button:hover{color:#fff1cf}
+#scene{position:fixed;inset:0;touch-action:none;cursor:default}
+#scene canvas{display:block}
+.vignette{pointer-events:none;position:fixed;inset:0;background:radial-gradient(ellipse at 50% 45%,transparent 40%,#02060577 100%)}
+.topbar{position:fixed;top:30px;left:42px;right:42px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:12px;flex-shrink:0;font-size:17px;letter-spacing:3px}
+.brand-star{font-size:40px;color:var(--gold);font-family:Georgia,serif}
+.brand small{display:block;font-size:10px;letter-spacing:2.2px;margin-top:7px;color:var(--muted);white-space:nowrap}
+.top-actions{display:flex;align-items:center;gap:20px;flex-shrink:0}
+.top-actions>span{font-size:12px;color:var(--muted);white-space:nowrap}
+.outline{padding:11px 20px;border:1px solid #d9bd7855;border-radius:3px;background:#0b110e80;font-size:14px;letter-spacing:1px;white-space:nowrap;flex-shrink:0}
+.outline:hover{border-color:var(--gold);background:#bca15d19}
+.outline span{margin-right:7px}
+.greeting{position:fixed;top:88px;left:0;width:100%;pointer-events:none;text-align:center}
+.eyebrow{font-size:10px;letter-spacing:3.5px;color:#bba879;margin:0 0 13px}
+h1{font:400 64px/1.2 Georgia,"Times New Roman",serif;letter-spacing:1px;margin:0;color:#f5dc9e;text-shadow:0 2px 12px #000,0 0 36px #edbd5830}
+.subtitle{font-size:13px;letter-spacing:5px;color:#b5aa91;margin:16px 0;text-shadow:0 1px 7px #000,0 0 12px #000}
+.sensor-video{position:fixed;left:-9999px;top:0;width:1px;height:1px;opacity:0;pointer-events:none}
+.gesture-status{position:fixed;left:16px;right:16px;bottom:24px;text-align:center;font-size:12px;line-height:1.8;color:#bcae8a;pointer-events:none;z-index:15}
+.gesture-status[data-state=error]{color:#edc7a3}
+#loader{position:fixed;inset:0;z-index:20;display:flex;align-items:center;justify-content:center;flex-direction:column;background:#050807;transition:opacity .7s}
+#loader p{font-size:14px;letter-spacing:4px;color:var(--gold)}
+#loader small{font-size:12px;letter-spacing:1px;color:#a39b85;text-align:center;padding:0 25px;line-height:2}
+.loading-star{font-size:60px;color:var(--gold);animation:breathe 1.6s infinite}
+#toast{position:fixed;left:50%;top:28%;transform:translateX(-50%);max-width:90vw;padding:14px 22px;border:1px solid #d4b87855;border-radius:5px;background:#0c130ff2;color:#e1d1ac;font-size:14px;z-index:30;line-height:1.8;text-align:center}
+@keyframes breathe{50%{opacity:.3;transform:scale(.9)}}
+@media(max-width:800px){
+  .topbar{top:22px;left:16px;right:16px;gap:10px}
+  .top-actions{gap:8px}
+  .top-actions>span{display:none}
+  .brand{font-size:14px;gap:6px;letter-spacing:1.5px}
+  .brand small{font-size:8px;letter-spacing:1px;margin-top:5px}
+  .brand-star{font-size:28px}
+  .outline{padding:10px;font-size:12px;letter-spacing:.5px}
+  .outline span{margin-right:4px}
+  .greeting{top:106px}
+  .greeting h1{font-size:38px}
+  .greeting .eyebrow{font-size:8px;letter-spacing:2px}
+  .subtitle{font-size:11px;letter-spacing:3px}
+}
+@media(max-width:360px){
+  .topbar{left:12px;right:12px;gap:6px}
+  .brand-star{font-size:24px}
+  .brand{gap:4px}
+  .brand small{font-size:7px;letter-spacing:.8px}
+  .top-actions{gap:6px}
+  .outline{padding:10px 8px}
+}
+@media(max-height:700px){
+  .topbar{top:16px}
+  .greeting{top:78px}
+  .greeting h1{font-size:40px}
+  .greeting .eyebrow{display:none}
+  .subtitle{margin:9px 0}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}.loading-star{animation:none}}
+@media(min-width:801px) and (min-height:701px) and (max-height:800px){.greeting{top:54px}.greeting h1{font-size:54px}.subtitle{margin-top:12px}}

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#050807">
+  <title>圣诞光屿 · Christmas Memories</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="importmap">{"imports":{"three":"./vendor/three/build/three.module.js","three/addons/":"./vendor/three/examples/jsm/"}}</script>
+</head>
+<body>
+  <main id="scene" aria-label="手势控制的圣诞粒子树"></main>
+  <div class="vignette" aria-hidden="true"></div>
+  <header class="topbar chrome">
+    <div class="brand"><span class="brand-star">✧</span><div>圣诞光屿<small>CHRISTMAS MEMORIES</small></div></div>
+    <div class="top-actions"><span id="photo-count">12 张示意卡片</span><button class="outline" id="upload-button"><span>＋</span> 添加照片</button></div>
+  </header>
+  <section class="greeting chrome" aria-label="圣诞祝福">
+    <p class="eyebrow">A LITTLE LIGHT. A THOUSAND MEMORIES.</p>
+    <h1>Merry Christmas</h1>
+    <p class="subtitle">把珍贵的瞬间，点亮成一棵树</p>
+  </section>
+  <div id="loader" role="status"><span class="loading-star">✧</span><p>正在点亮你的圣诞树</p><small>愿每一束微光，都有回忆的温度</small></div>
+  <video id="webcam" class="sensor-video" autoplay muted playsinline aria-hidden="true" tabindex="-1"></video>
+  <p id="gesture-status" class="gesture-status" role="status" aria-live="polite">正在连接摄像头…</p>
+  <div id="toast" role="status" aria-live="polite" hidden></div>
+  <input id="photo-input" type="file" accept="image/jpeg,image/png,image/webp,image/avif,image/gif" multiple hidden>
+  <script type="module">import('./app.js').catch(error=>{console.error(error);const el=document.querySelector('#loader');el.innerHTML='<span class="loading-star">✧</span><p>圣诞树暂时没有点亮</p><small>请使用「启动预览.cmd」打开，或检查浏览器是否支持 WebGL。</small>';});</script>
+</body>
+</html>
